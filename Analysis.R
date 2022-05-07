@@ -60,6 +60,17 @@ ggplot(df, aes(x=Condition, y=NonFoodFightersPer, color=Condition)) +
 
 summary(glm(NonFoodFightersPer ~ Condition, data = df)) 
 
+library(reshape2)
+df.m <- melt(df,id.vars='Condition', measure.vars=c('FoodFightersPer','NonFoodFightersPer'))
+
+ggplot(df.m) +
+  geom_boxplot(aes(x=Condition, y=value, color=variable))+
+  theme_classic()
+
+ggplot(df, aes(x=Condition)) +
+  geom_boxplot(aes(y=FoodFightersPer),color="green") +
+  geom_boxplot(aes(y=NonFoodFightersPer),color="blue") +
+  theme_classic()
 
 
 

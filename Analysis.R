@@ -57,7 +57,7 @@ ggplot(df, aes(x=Condition, y=NonFoodFightersPer, color=Condition)) +
   geom_violin() +
   geom_point() +
   theme_classic()
-
+xcxc
 summary(glm(NonFoodFightersPer ~ Condition, data = df)) 
 
 library(reshape2)
